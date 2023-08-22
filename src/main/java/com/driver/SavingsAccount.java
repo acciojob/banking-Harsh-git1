@@ -1,8 +1,8 @@
 package com.driver;
 
 public class SavingsAccount extends BankAccount{
-    double rate;
-    double maxWithdrawalLimit;
+    private double rate;
+    private double maxWithdrawalLimit;
 
     public SavingsAccount(String name, double balance, double maxWithdrawalLimit, double rate) {
         // minimum balance is 0 by default
@@ -23,10 +23,10 @@ public class SavingsAccount extends BankAccount{
     public double getSimpleInterest(int years){
         // Return the final amount considering that bank gives simple interest on current amount
         double P = getBalance();
-        double R = rate;
+        double R = rate/100.0;
         double T = years;
 
-        return P + ((P*R*T)/100);
+        return P + (P*R*T);
     }
 
     public double getCompoundInterest(int times, int years){
